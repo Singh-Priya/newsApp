@@ -6,26 +6,26 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
-import { FaExchangeAlt } from 'react-icons/fa';
+// import { FaExchangeAlt } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 
 const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
   const [type, setType] = useState('category');
-  const [country, setCountry] = useState('');
-  const [category, setCategory] = useState('');
+  const [country, setCountry] = useState('India');
+  const [category, setCategory] = useState('Business');
   const [source, setSource] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const changeType = () => {
-    if (type === 'category') {
-      setCountry('');
-      setCategory('');
-      setType('source');
-    } else {
-      setSource('');
-      setType('category');
-    }
-  };
+  // const changeType = () => {
+  //   if (type === 'category') {
+  //     setCountry('');
+  //     setCategory('');
+  //     setType('source');
+  //   } else {
+  //     setSource('');
+  //     setType('category');
+  //   }
+  // };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -51,7 +51,8 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                         defaultValue={country}
                         onChange={e => setCountry(e.target.value)}
                       >
-                        <option value=''>Select Country</option>
+                        <option value='in'>India</option>
+
                         <option value='us'>United States of America</option>
                         <option value='gb'>United Kingdom</option>
                         <option value='ca'>Canada</option>
@@ -74,7 +75,7 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                         defaultValue={category}
                         onChange={e => setCategory(e.target.value)}
                       >
-                        <option value=''>All Category</option>
+                        {/* <option value=''>All Category</option> */}
                         <option value='business'>Business</option>
                         <option value='entertainment'>Entertainment</option>
                         <option value='general'>General</option>
@@ -116,14 +117,14 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                 </Fragment>
               )}
 
-              <Col md='3' sm='3' className='mb-3 '>
+              {/* <Col md='3' sm='3' className='mb-3 '>
                 <Form.Control
                   placeholder='Keywords (optional)'
                   name='searchQuery'
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                 />
-              </Col>
+              </Col> */}
               <Col md='2' sm='2' className='mb-3 '>
                 <Button variant={news.theme} type='submit' className='mr-1'>
                   {news.newsLoading ? (
@@ -141,14 +142,14 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                     <FaSearch />
                   )}
                 </Button>
-                <Button
+                {/* <Button
                   variant={news.theme}
                   onClick={() => {
                     changeType();
                   }}
-                >
-                  <FaExchangeAlt />
-                </Button>
+                > */}
+                  {/* <FaExchangeAlt /> */}
+                {/* </Button> */}
               </Col>
             </Form.Row>
           </Form>

@@ -19,7 +19,7 @@ const NewsList = ({ newsItems, loading, newsItemsTotal, theme, loadMore }) => {
 
       {newsItemsTotal !== null && (
         <Row className='justify-content-md-center mb-4'>
-          {newsItems.map((item, i) => (
+          {newsItems.slice(1).map((item, i) => (
             <NewsItem key={i} item={item} theme={theme} />
           ))}
         </Row>

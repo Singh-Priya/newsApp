@@ -3,6 +3,10 @@ import CategorySourceSearchForm from '../components/CategorySourceSearchForm';
 import { setTopNews, clearTopNews } from '../actions/news';
 import NewsList from '../components/NewsList';
 import { connect } from 'react-redux';
+import Row from 'react-bootstrap/Row';
+import NewsItem from '../components/NewsItem';
+// import Col from 'react-bootstrap/Col';
+// import Button from 'react-bootstrap/Button';
 
 const Home = ({ setTopNews, news, clearTopNews }) => {
   const [page, setPage] = useState(1);
@@ -29,6 +33,16 @@ const Home = ({ setTopNews, news, clearTopNews }) => {
     // eslint-disable-next-line
   }, [categorySourceUrl, page]);
 
+  
+  useEffect(() => {
+      const url = "top-headlines?country=in&category=Business&sources=&q=";
+      setTopNews(url, page);
+      return () => {
+      clearTopNews();
+    };
+    // eslint-disable-next-line
+  }, [categorySourceUrl, page]);
+
   return (
     <Fragment>
       <CategorySourceSearchForm
@@ -36,6 +50,17 @@ const Home = ({ setTopNews, news, clearTopNews }) => {
           handleCategorySourceSearch(categorySourceUrl);
         }}
       />
+
+{news.newsItemsTotal !== null && (
+        <Row className='justify-content-md-center mb-4'>
+          
+          <NewsItem key={1} item={news.newsItems[0]} />
+          {/* {news.newsItems.map((item, i) => (
+            <NewsItem key={1} item={news.newsItems[0]} />
+          ))} */}
+        </Row>
+      )}
+
       <NewsList
         newsItemsTotal={news.newsItemsTotal}
         loading={news.newsLoading}

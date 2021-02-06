@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Truncate from 'react-truncate';
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { bookmarkItem, unBookmarkItem } from '../actions/bookmarks';
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
@@ -78,11 +78,11 @@ const NewsItem = ({
             />
           )}
         </Card.Body>
-        <Card.Footer>
+        {/* <Card.Footer>
           <small className='text-muted'>
             Published: <Moment format='YYYY/MM/DD' date={item.publishedAt} />
           </small>
-        </Card.Footer>
+        </Card.Footer> */}
       </Card>
     </Col>
   );
