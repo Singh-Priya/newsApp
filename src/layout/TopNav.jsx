@@ -1,32 +1,34 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { changeTheme } from '../actions/news';
+// import { changeTheme } from '../actions/news';
+import logo from '../assests/logo.svg';
 
-const TopNav = ({ news, changeTheme }) => {
+const TopNav = ({ news }) => {
   return (
-    <Navbar collapseOnSelect expand='lg' bg={news.theme} variant={news.theme}>
+    <Navbar collapseOnSelect expand='lg'>
       <Container>
-        <Navbar.Brand href='/'>React News Search & Bookmark</Navbar.Brand>
+        <Navbar.Brand href='/'> <Image src={logo}></Image></Navbar.Brand>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='ml-auto'>
             <Nav.Link activeClassName='active' exact as={NavLink} to='/'>
-              Top News
+              Home
             </Nav.Link>
             <Nav.Link activeClassName='active' as={NavLink} to='/bookmarks'>
               Bookmarks
             </Nav.Link>
             <Nav.Link>
-              <div
+              {/* <div
                 onClick={() =>
                   changeTheme(news.theme === 'dark' ? 'light' : 'dark')
                 }
                 className={`circle-${news.theme === 'dark' ? 'light' : 'dark'}`}
-              />
+              /> */}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
@@ -41,5 +43,4 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { changeTheme }
 )(TopNav);

@@ -10,11 +10,11 @@ import Spinner from 'react-bootstrap/Spinner';
 import { FaSearch } from 'react-icons/fa';
 
 const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
-  const [type, setType] = useState('category');
-  const [country, setCountry] = useState('India');
-  const [category, setCategory] = useState('Business');
+  const [type] = useState('category');
+  const [country, setCountry] = useState('in');
+  const [category, setCategory] = useState('');
   const [source, setSource] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
 
   // const changeType = () => {
   //   if (type === 'category') {
@@ -29,7 +29,7 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    if (country || source) {
+    if (country || source || category) {
       onCategorySourceSearch(
         `top-headlines?country=${country}&category=${category}&sources=${source}&q=${searchQuery}`
       );
@@ -37,14 +37,14 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
   };
 
   return (
-    <Container fluid className={`heroContainer-${news.theme}`}>
+    <Container fluid className={`heroContainer`}>
       <Row className='justify-content-md-center'>
-        <Col xs lg='8'>
+        <Col xs lg='12'>
           <Form className='mt-3' onSubmit={onSubmit}>
             <Form.Row>
               {type === 'category' && (
                 <Fragment>
-                  <Col md='4' sm='4'>
+                  <Col md='5' sm='5'>
                     <Form.Group>
                       <Form.Control
                         as='select'
@@ -52,7 +52,6 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                         onChange={e => setCountry(e.target.value)}
                       >
                         <option value='in'>India</option>
-
                         <option value='us'>United States of America</option>
                         <option value='gb'>United Kingdom</option>
                         <option value='ca'>Canada</option>
@@ -68,14 +67,14 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                       </Form.Control>
                     </Form.Group>
                   </Col>
-                  <Col md='3' sm='3'>
+                  <Col md='5' sm='5'>
                     <Form.Group>
                       <Form.Control
                         as='select'
                         defaultValue={category}
                         onChange={e => setCategory(e.target.value)}
                       >
-                        {/* <option value=''>All Category</option> */}
+                        <option value=''>All Category</option>
                         <option value='business'>Business</option>
                         <option value='entertainment'>Entertainment</option>
                         <option value='general'>General</option>
@@ -126,7 +125,7 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                 />
               </Col> */}
               <Col md='2' sm='2' className='mb-3 '>
-                <Button variant={news.theme} type='submit' className='mr-1'>
+                <Button variant='dark' type='submit' className='mr-1'>
                   {news.newsLoading ? (
                     <Fragment>
                       <Spinner

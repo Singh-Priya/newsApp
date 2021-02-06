@@ -12,20 +12,20 @@ import Home from './pages/Home';
 import Bookmarks from './pages/Bookmarks';
 import PageNotFound from './pages/PageNotFound';
 
-import TopNav from './layout/TopNav';
-import { getNewsSource, setTheme } from './actions/news';
+// import TopNav from './layout/TopNav';
+import { getNewsSource } from './actions/news';
 import { getBookmarkItems } from './actions/bookmarks';
 const App = () => {
   useEffect(() => {
     store.dispatch(getNewsSource());
-    store.dispatch(setTheme());
+    // store.dispatch(setTheme());
     store.dispatch(getBookmarkItems());
   }, []);
   return (
     <Provider store={store}>
       <Router>
         <Fragment>
-          <TopNav />
+          {/* <TopNav /> */}
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/bookmarks' exact component={Bookmarks} />

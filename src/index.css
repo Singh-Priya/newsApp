@@ -1,8 +1,5 @@
-.heroContainer-dark {
-  background-color: rgb(168, 168, 168);
-}
-.heroContainer-light {
-  background-color: #fdfdfd;
+#root {
+  padding-top: 90px;
 }
 
 .circle-dark {
@@ -33,9 +30,61 @@
 }
 
 .urlImage {
+  max-width: 200px;
   width: 100%;
-  height: 250px;
+  height: 200px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.navigation, .bookmarks .navbar {
+  margin:0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgb(0, 0, 0, 0.2);
+  position: fixed;
+  width:100%;
+  z-index:10;
+  top:0;
+  left:0;
+  right:0;
+}
+
+.navigation .navbar {
+  width:57%;
+}
+
+.navigation .navbar .nav-link.active, .bookmarks .navbar .nav-link.active {
+  color: #5305FF;
+  font-weight: 700;
+}
+
+.navigation .heroContainer {
+  width: 43%;
+}
+
+.card {
+  flex-direction: row;
+}
+
+.card-body a {
+  color:#000;
+  display: inline-block;
+  width:80%;
+  text-decoration: none;
+}
+
+.card-body a:hover {
+  color: #5305FF;
+}
+
+.card-body svg {
+  position: absolute;
+  right:15px;
+  top:10px;
+}
+
+.loadmore {
+  background-color: #5305FF;
+  border:none;
 }

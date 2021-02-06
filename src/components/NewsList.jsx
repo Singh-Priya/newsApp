@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import NewsItem from './NewsItem';
 
-const NewsList = ({ newsItems, loading, newsItemsTotal, theme, loadMore }) => {
+const NewsList = ({ newsItems, loading, newsItemsTotal, loadMore }) => {
   return (
     <Container>
       {newsItemsTotal !== null && !loading ? (
@@ -20,7 +20,7 @@ const NewsList = ({ newsItems, loading, newsItemsTotal, theme, loadMore }) => {
       {newsItemsTotal !== null && (
         <Row className='justify-content-md-center mb-4'>
           {newsItems.slice(1).map((item, i) => (
-            <NewsItem key={i} item={item} theme={theme} />
+            <NewsItem key={i} item={item} />
           ))}
         </Row>
       )}
@@ -36,7 +36,7 @@ const NewsList = ({ newsItems, loading, newsItemsTotal, theme, loadMore }) => {
       {newsItems.length < newsItemsTotal && !loading && (
         <Row className='justify-content-md-center py-2'>
           <Col xs={12} sm={12} className='text-center'>
-            <Button className='py-2' variant={theme} onClick={loadMore}>
+            <Button className='py-2 loadmore' onClick={loadMore}>
               Load More
             </Button>
           </Col>
