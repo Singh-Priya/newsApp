@@ -9,16 +9,16 @@ import TopNav from '../layout/TopNav';
 const Bookmarks = ({ bookmarkItems }) => {
   return (
     <Fragment>
-      <Container fluid className="bookmarks">
+      <Container className="bookmarks">
       <TopNav />
         <Row className='justify-content-md-center py-4'>
-          <Col xs lg='8'>
-            <p className='h3 text-center'>Bookmarks</p>
+          <Col xs lg='12'>
+            <h2 className='text-center'>Bookmark News</h2>
           </Col>
         </Row>
       </Container>
       <Container>
-        <Row className='py-4'>
+        {/* <Row className='py-4'>
           <Col xs={12} sm={12}>
             <p className='h5  text-center'>
               {bookmarkItems.length === 0 ? (
@@ -30,7 +30,7 @@ const Bookmarks = ({ bookmarkItems }) => {
               )}
             </p>
           </Col>
-        </Row>
+        </Row> */}
         <Row className='justify-content-md-center mb-4 pb-4'>
           {bookmarkItems.map((item, i) => (
             <NewsItem key={i} item={item} />

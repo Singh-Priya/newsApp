@@ -7,9 +7,6 @@ export const SET_NEWS_LOADING = 'SET_NEWS_LOADING';
 export const SET_TOP_NEWS = 'SET_TOP_NEWS';
 export const CLEAR_TOP_NEWS = 'CLEAR_TOP_NEWS';
 export const TOP_NEWS_ERROR = 'TOP_NEWS_ERROR';
-// Set Theme
-export const SET_THEME = 'SET_THEME';
-export const CHANGE_THEME = 'CHANGE_THEME';
 // Bookmark
 export const BOOKMARK_ITEM = 'BOOKMARK_ITEM';
 export const UNBOOKMARK_ITEM = 'UNBOOKMARK_ITEM';

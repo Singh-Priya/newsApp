@@ -4,8 +4,6 @@ import {
   SET_SOURCE_LOADING,
   GET_NEWS_SOURCE,
   NEWS_SOURCE_ERROR,
-  // CHANGE_THEME,
-  // SET_THEME,
   TOP_NEWS_ERROR,
   SET_TOP_NEWS,
   CLEAR_TOP_NEWS
@@ -18,41 +16,6 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   newsApiKey = process.env.NEWS_API_KEY;
 }
-
-// // Set Theme
-// export const setTheme = () => {
-//   let localTheme = localStorage.getItem('theme');
-
-//   if (localTheme === undefined || localTheme === null) {
-//     localTheme = 'dark';
-//     document.body.style.backgroundColor = '#ccc';
-//     localStorage.setItem('theme', localTheme);
-//   }
-
-//   if (localTheme === 'dark') {
-//     document.body.style.backgroundColor = '#ccc';
-//   } else {
-//     document.body.style.backgroundColor = '#fff';
-//   }
-//   return {
-//     type: SET_THEME,
-//     payload: localTheme
-//   };
-// };
-
-// // Change theme
-// export const changeTheme = theme => {
-//   localStorage.setItem('theme', theme);
-//   if (theme === 'dark') {
-//     document.body.style.backgroundColor = '#ccc';
-//   } else {
-//     document.body.style.backgroundColor = '#fff';
-//   }
-//   return {
-//     type: CHANGE_THEME,
-//     payload: theme
-//   };
-// };
 
 // Set Source loading
 export const setSourceLoading = () => {
@@ -73,7 +36,6 @@ export const getNewsSource = () => async dispatch => {
   dispatch(setSourceLoading());
   try {
     const newsSource = await axios.get(`sources?apiKey=${newsApiKey}`);
-    console.log("newsSource>>", newsSource);
     if (newsSource) {
       dispatch({
         type: GET_NEWS_SOURCE,

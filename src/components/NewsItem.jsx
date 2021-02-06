@@ -1,12 +1,11 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Truncate from 'react-truncate';
 import { connect } from 'react-redux';
 import { bookmarkItem, unBookmarkItem } from '../actions/bookmarks';
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
-import NewsDefaultImage from './news-default-image.jpg';
+import NewsDefaultImage from '../assests/news-default-image.jpg';
 
 const NewsItem = ({
   item,
@@ -29,7 +28,6 @@ const NewsItem = ({
   const unBookmark = item => {
     unBookmarkItem(item);
   };
-  console.log("item>>", item.urlToImage)
   return (
     <Col xs={12} sm={12} md={12} lg={12} xl={12} className='my-2'>
       <Card>
@@ -46,25 +44,19 @@ const NewsItem = ({
         )}
 
         <Card.Body>
-          <a href={item.url} target ="_blank">
+          <a href={item.url} target ="_blank" rel="noopener noreferrer">
           <Card.Title>
-            <Truncate lines={2} ellipsis={<span>...</span>}>
+            <Truncate ellipsis={<span>...</span>}>
               {item.title}
             </Truncate>
           </Card.Title>
           </a>
-          {/* <Card.Subtitle className='mb-2 text-muted'>
-            {item.source.name} <br />
-            <span style={{ fontWeight: 'normal' }}>{item.author}</span>
-          </Card.Subtitle> */}
           <Card.Text>
             <Truncate lines={3} ellipsis={<span>...</span>}>
               {item.description}
             </Truncate>
           </Card.Text>
-          {/* <Button variant={theme} href={item.url} target='_blank'>
-            Go to Page
-          </Button> */}
+          <div className="mark">
           {isBookmark(item) ? (
             <FaBookmark
               className='float-right mt-2 icon-button'
@@ -78,12 +70,8 @@ const NewsItem = ({
               onClick={() => bookmark(item)}
             />
           )}
+          </div>
         </Card.Body>
-        {/* <Card.Footer>
-          <small className='text-muted'>
-            Published: <Moment format='YYYY/MM/DD' date={item.publishedAt} />
-          </small>
-        </Card.Footer> */}
       </Card>
     </Col>
   );

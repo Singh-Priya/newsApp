@@ -6,8 +6,6 @@ import {
   SET_SOURCE_LOADING,
   GET_NEWS_SOURCE,
   NEWS_SOURCE_ERROR,
-  CHANGE_THEME,
-  SET_THEME
 } from '../actions/types';
 
 const initialState = {
@@ -25,16 +23,6 @@ const initialState = {
 export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case SET_THEME:
-      return {
-        ...state,
-        theme: payload
-      };
-    case CHANGE_THEME:
-      return {
-        ...state,
-        theme: payload
-      };
     case SET_NEWS_LOADING:
       return {
         ...state,

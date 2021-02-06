@@ -5,7 +5,6 @@ import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { changeTheme } from '../actions/news';
 import logo from '../assests/logo.svg';
 
 const TopNav = ({ news }) => {
@@ -23,12 +22,6 @@ const TopNav = ({ news }) => {
               Bookmarks
             </Nav.Link>
             <Nav.Link>
-              {/* <div
-                onClick={() =>
-                  changeTheme(news.theme === 'dark' ? 'light' : 'dark')
-                }
-                className={`circle-${news.theme === 'dark' ? 'light' : 'dark'}`}
-              /> */}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

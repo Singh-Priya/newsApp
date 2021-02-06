@@ -12,7 +12,7 @@ const NewsList = ({ newsItems, loading, newsItemsTotal, loadMore }) => {
       {newsItemsTotal !== null && !loading ? (
         <Row className='py-3'>
           <Col xs={12} sm={12}>
-            <p className='h5  text-center'>{newsItemsTotal} News Result(s)</p>
+            <h2 className='h5  text-center'>All News</h2>
           </Col>
         </Row>
       ) : null}

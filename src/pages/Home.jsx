@@ -8,8 +8,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 import NewsItem from '../components/NewsItem';
-// import Col from 'react-bootstrap/Col';
-// import Button from 'react-bootstrap/Button';
 
 const Home = ({ setTopNews, news, clearTopNews }) => {
   const [page, setPage] = useState(1);
@@ -24,15 +22,6 @@ const Home = ({ setTopNews, news, clearTopNews }) => {
     setPage(page + 1);
   };
 
-//   useEffect(() => {
-//     const url = "top-headlines?country=in&category=General&sources=&q=";
-//     setTopNews(url, page);
-//     return () => {
-//     clearTopNews();
-//   };
-//   // eslint-disable-next-line
-// }, [categorySourceUrl]);
-
   useEffect(() => {
     if (categorySourceUrl) {
       const url = `${categorySourceUrl}`;
@@ -45,7 +34,6 @@ const Home = ({ setTopNews, news, clearTopNews }) => {
     // eslint-disable-next-line
   }, [categorySourceUrl, page]);
 
-console.log("news>>>", news.newsItems[0]);
   return (
     <Fragment>
       <Row className='justify-content-md-center mb-4 navigation'>
@@ -60,11 +48,8 @@ console.log("news>>>", news.newsItems[0]);
 {news.newsItemsTotal !== null && news.newsItems[0] && news.newsItems[0].urlToImage && (
   <Container>
         <Row className='justify-content-md-center mb-4'>
-          
+          <h2>Top News</h2>
           <NewsItem key={1} item={news.newsItems[0]} />
-          {/* {news.newsItems.map((item, i) => (
-            <NewsItem key={1} item={news.newsItems[0]} />
-          ))} */}
         </Row>
   </Container>
       )}

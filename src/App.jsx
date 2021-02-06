@@ -1,24 +1,16 @@
 import React, { Fragment, useEffect } from 'react';
-
-// React Router Dom
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-// Redux Store
 import { Provider } from 'react-redux';
 import store from './store';
-
-// Pages
 import Home from './pages/Home';
 import Bookmarks from './pages/Bookmarks';
 import PageNotFound from './pages/PageNotFound';
-
 // import TopNav from './layout/TopNav';
 import { getNewsSource } from './actions/news';
 import { getBookmarkItems } from './actions/bookmarks';
 const App = () => {
   useEffect(() => {
     store.dispatch(getNewsSource());
-    // store.dispatch(setTheme());
     store.dispatch(getBookmarkItems());
   }, []);
   return (

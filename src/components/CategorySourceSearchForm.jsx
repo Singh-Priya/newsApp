@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
-// import { FaExchangeAlt } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 
 const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
@@ -16,16 +15,6 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
   const [source, setSource] = useState('');
   const [searchQuery] = useState('');
 
-  // const changeType = () => {
-  //   if (type === 'category') {
-  //     setCountry('');
-  //     setCategory('');
-  //     setType('source');
-  //   } else {
-  //     setSource('');
-  //     setType('category');
-  //   }
-  // };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -44,7 +33,7 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
             <Form.Row>
               {type === 'category' && (
                 <Fragment>
-                  <Col md='5' sm='5'>
+                  <Col md='5' sm='5' xs='5'>
                     <Form.Group>
                       <Form.Control
                         as='select'
@@ -67,7 +56,7 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                       </Form.Control>
                     </Form.Group>
                   </Col>
-                  <Col md='5' sm='5'>
+                  <Col md='5' sm='5' xs='5'>
                     <Form.Group>
                       <Form.Control
                         as='select'
@@ -116,15 +105,7 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                 </Fragment>
               )}
 
-              {/* <Col md='3' sm='3' className='mb-3 '>
-                <Form.Control
-                  placeholder='Keywords (optional)'
-                  name='searchQuery'
-                  value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                />
-              </Col> */}
-              <Col md='2' sm='2' className='mb-3 '>
+              <Col md='2' sm='2' xs='2' className='mb-3 '>
                 <Button variant='dark' type='submit' className='mr-1'>
                   {news.newsLoading ? (
                     <Fragment>
@@ -141,14 +122,6 @@ const CategorySourceSearch = ({ onCategorySourceSearch, news }) => {
                     <FaSearch />
                   )}
                 </Button>
-                {/* <Button
-                  variant={news.theme}
-                  onClick={() => {
-                    changeType();
-                  }}
-                > */}
-                  {/* <FaExchangeAlt /> */}
-                {/* </Button> */}
               </Col>
             </Form.Row>
           </Form>
